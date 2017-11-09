@@ -35,25 +35,25 @@ import static com.chrynan.guitartuner.TunerFragment.AUDIO_PERMISSION_REQUEST_COD
 public class MainActivity extends Activity {
 
     private TextView fTextView;
-    private TextView pTextView;
+    private TextView nTextView;
     private Note note;
+    private String noteString;
     private PitchDetectionResult result;
 
     //note = new Note(Note.DEFAULT_FREQUENCY);
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults){
-        switch(requestCode){
+        switch(requestCode) {
             case TunerFragment.AUDIO_PERMISSION_REQUEST_CODE:
-                if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     tuner.start();
-                }else if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_DENIED){
+                } else if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_DENIED) {
                     Toast.makeText(MainActivity.this, "GuitarTuner needs access to the microphone to function.", Toast.LENGTH_LONG).show();
                     MainActivity.this.finish();
-                }
-                else Toast.makeText(MainActivity.this, "tumtfqawejfgaos", Toast.LENGTH_LONG).show();
+                } else
+                    Toast.makeText(MainActivity.this, "tumtfqawejfgaos", Toast.LENGTH_LONG).show();
                 break;
         }
-        Toast.makeText(MainActivity.this, "tumtfqawejfgaos", Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -61,7 +61,9 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tuner_layout);
         fTextView = (TextView) findViewById(R.id.frequencyTextView);
-        fTextView.setText("updateNote not working");
+        fTextView.setText("frequency not working");
+        nTextView = (TextView) findViewById(R.id.noteTextView);
+        nTextView.setText("updateNote not working");
         requestPermissions(new String[]{Manifest.permission.RECORD_AUDIO},
                 AUDIO_PERMISSION_REQUEST_CODE);
 
@@ -72,13 +74,16 @@ public class MainActivity extends Activity {
 
             note = newNote;
             result = newResult;
-            String aFreq = "setFreq not working";
+
+            String aFreq = "N/A";
+            String noteString = "N/A";
 
             if(newNote.getFrequency() != Note.UNKNOWN_FREQUENCY) {
                 aFreq = String.valueOf(new DecimalFormat("######.##").format(note.getActualFrequency()));
+                noteString = note.getNote();
             }
-
             fTextView.setText(aFreq);
+            nTextView.setText(noteString);
         }
     });
 }
