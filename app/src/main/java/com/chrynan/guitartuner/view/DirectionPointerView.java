@@ -35,7 +35,7 @@ import com.chrynan.guitartuner.tarsos.PitchDetectionResult;
  * the up drawable.
  */
 public class DirectionPointerView extends CircleImageView implements TunerUpdate {
-    //Should keep this in sync with TunerView.DEFAULT_WIGGLE_ROOM
+    //Should keep this in sync with TunerView.tolerance
     public static final int DEFAULT_WIGGLE_ROOM = 5;
     private Drawable check;
     private Drawable up;

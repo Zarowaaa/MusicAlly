@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/light_primary">
+    android:background="@android:color/darker_gray">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,12 +12,12 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="89dp" />
+            android:layout_height="77dp" />
 
         <TextView
             android:id="@+id/noteTextView"
             android:layout_width="match_parent"
-            android:layout_height="137dp"
+            android:layout_height="108dp"
             android:gravity="center_horizontal"
             android:text="noteTextView"
             android:textAlignment="center"
@@ -25,6 +25,19 @@
             android:textStyle="bold"
             tools:text="N/A" />
 
+
+        <TextView
+            android:id="@+id/probTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="probTextView"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="233dp" />
 
         <TextView
             android:id="@+id/frequencyTextView"

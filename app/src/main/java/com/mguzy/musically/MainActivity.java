@@ -3,25 +3,19 @@ package com.mguzy.musically;
 import android.Manifest;
 import android.app.Activity;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
+import android.text.style.ForegroundColorSpan;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.chrynan.guitartuner.Note;
 import com.chrynan.guitartuner.Tuner;
-import com.chrynan.guitartuner.TunerActivity;
 import com.chrynan.guitartuner.TunerFragment;
 import com.chrynan.guitartuner.TunerUpdate;
 import com.chrynan.guitartuner.tarsos.PitchDetectionResult;
-
-import org.w3c.dom.Text;
 
 import java.text.DecimalFormat;
 
@@ -36,14 +30,19 @@ public class MainActivity extends Activity {
 
     private TextView fTextView;
     private TextView nTextView;
+    private TextView probTextView;
     private Note note;
-    private String noteString;
+    public static final int tolerance = 3;
+    public static final int RED = Color.parseColor("#c60000");
+    public static final int BLUE = Color.parseColor("#0048ff");
+    public static final String IN_TUNE = "in tune";
     private PitchDetectionResult result;
+    private SpannableStringBuilder sb;
 
     //note = new Note(Note.DEFAULT_FREQUENCY);
     @Override
-    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults){
-        switch(requestCode) {
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        switch (requestCode) {
             case TunerFragment.AUDIO_PERMISSION_REQUEST_CODE:
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     tuner.start();
@@ -64,26 +63,55 @@ public class MainActivity extends Activity {
         fTextView.setText("frequency not working");
         nTextView = (TextView) findViewById(R.id.noteTextView);
         nTextView.setText("updateNote not working");
+        probTextView = (TextView) findViewById(R.id.probTextView);
+        probTextView.setText("accuracy not working");
+        nTextView = (TextView) findViewById(R.id.noteTextView);
+        nTextView.setText("updateNote not working");
         requestPermissions(new String[]{Manifest.permission.RECORD_AUDIO},
                 AUDIO_PERMISSION_REQUEST_CODE);
-
+        sb = new SpannableStringBuilder();
     }
+
     Tuner tuner = new Tuner(new TunerUpdate() {
         @Override
         public void updateNote(Note newNote, PitchDetectionResult newResult) {
 
             note = newNote;
             result = newResult;
-
+            sb.clear();
+            sb.clearSpans();
             String aFreq = "N/A";
             String noteString = "N/A";
+            String accuracy = "N/A";
 
-            if(newNote.getFrequency() != Note.UNKNOWN_FREQUENCY) {
-                aFreq = String.valueOf(new DecimalFormat("######.##").format(note.getActualFrequency()));
+            if (newNote.getFrequency() != Note.UNKNOWN_FREQUENCY) {
+                aFreq = String.valueOf(new DecimalFormat("######.##").format(note.getActualFrequency())) + "hz";
                 noteString = note.getNote();
             }
+            if (newNote.getActualFrequency() < newNote.getFrequency()) {
+                if (newNote.getActualFrequency() + tolerance >= newNote.getFrequency()) {
+                    sb.append(IN_TUNE);
+                    sb.setSpan(new ForegroundColorSpan(RED), 0, IN_TUNE.length(), Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
+                } else {
+                    sb.append(aFreq);
+                    sb.setSpan(new ForegroundColorSpan(RED), 0, aFreq.length(), Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
+                    sb.append(" / " + note.getFrequency());
+                }
+            } else {
+                if (newNote.getActualFrequency() - tolerance <= newNote.getFrequency()) {
+                    sb.append(IN_TUNE);
+                    sb.setSpan(new ForegroundColorSpan(BLUE), 0, IN_TUNE.length(), Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
+                } else {
+                    sb.append(aFreq);
+                    sb.setSpan(new ForegroundColorSpan(BLUE), 0, aFreq.length(), Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
+                    sb.append(" / " + note.getFrequency());
+                }
+            }
+
             fTextView.setText(aFreq);
             nTextView.setText(noteString);
+            probTextView.setText(sb);
+
         }
     });
 }

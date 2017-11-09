@@ -42,7 +42,7 @@ import java.text.DecimalFormat;
  */
 public class TunerView extends LinearLayout implements TunerUpdate{
     private static final String TAG = TunerUpdate.class.getSimpleName();
-    //Should keep this in sync with DirectionPointerView.DEFAULT_WIGGLE_ROOM
+    //Should keep this in sync with DirectionPointerView.tolerance
     public static final int DEFAULT_WIGGLE_ROOM = 5;
     public static final String IN_TUNE = "in tune";
     public static final int ORANGE = Color.parseColor("#FF9800");
