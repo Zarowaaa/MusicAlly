@@ -26,7 +26,7 @@ import static com.chrynan.guitartuner.TunerFragment.AUDIO_PERMISSION_REQUEST_COD
  */
 
 
-public class MainActivity extends Activity {
+public class TuneActivity extends Activity {
 
     private TextView fTextView;
     private TextView nTextView;
@@ -35,9 +35,9 @@ public class MainActivity extends Activity {
     public static final int tolerance = 3;
     public static final int RED = Color.parseColor("#c60000");
     public static final int BLUE = Color.parseColor("#0048ff");
-    public static final String IN_TUNE = "in tune";
+    public static final String tuneMessage = "in tune";
     private PitchDetectionResult result;
-    private SpannableStringBuilder sb;
+    private SpannableStringBuilder accuracyString;
 
     //note = new Note(Note.DEFAULT_FREQUENCY);
     @Override
@@ -47,10 +47,10 @@ public class MainActivity extends Activity {
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     tuner.start();
                 } else if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_DENIED) {
-                    Toast.makeText(MainActivity.this, "GuitarTuner needs access to the microphone to function.", Toast.LENGTH_LONG).show();
-                    MainActivity.this.finish();
+                    Toast.makeText(TuneActivity.this, "GuitarTuner needs access to the microphone to function.", Toast.LENGTH_LONG).show();
+                    TuneActivity.this.finish();
                 } else
-                    Toast.makeText(MainActivity.this, "tumtfqawejfgaos", Toast.LENGTH_LONG).show();
+                    Toast.makeText(TuneActivity.this, "tumtfqawejfgaos", Toast.LENGTH_LONG).show();
                 break;
         }
     }
@@ -69,7 +69,7 @@ public class MainActivity extends Activity {
         nTextView.setText("updateNote not working");
         requestPermissions(new String[]{Manifest.permission.RECORD_AUDIO},
                 AUDIO_PERMISSION_REQUEST_CODE);
-        sb = new SpannableStringBuilder();
+        accuracyString = new SpannableStringBuilder();
     }
 
     Tuner tuner = new Tuner(new TunerUpdate() {
@@ -78,39 +78,39 @@ public class MainActivity extends Activity {
 
             note = newNote;
             result = newResult;
-            sb.clear();
-            sb.clearSpans();
-            String aFreq = "N/A";
+            accuracyString.clear();
+            accuracyString.clearSpans();
+            String frequencyString = "N/A";
             String noteString = "N/A";
             String accuracy = "N/A";
 
             if (newNote.getFrequency() != Note.UNKNOWN_FREQUENCY) {
-                aFreq = String.valueOf(new DecimalFormat("######.##").format(note.getActualFrequency())) + "hz";
+                frequencyString = String.valueOf(new DecimalFormat("######.##").format(note.getActualFrequency())) + "hz";
                 noteString = note.getNote();
             }
             if (newNote.getActualFrequency() < newNote.getFrequency()) {
                 if (newNote.getActualFrequency() + tolerance >= newNote.getFrequency()) {
-                    sb.append(IN_TUNE);
-                    sb.setSpan(new ForegroundColorSpan(RED), 0, IN_TUNE.length(), Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
+                    accuracyString.append(tuneMessage);
+                    accuracyString.setSpan(new ForegroundColorSpan(RED), 0, tuneMessage.length(), Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
                 } else {
-                    sb.append(aFreq);
-                    sb.setSpan(new ForegroundColorSpan(RED), 0, aFreq.length(), Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
-                    sb.append(" / " + note.getFrequency());
+                    accuracyString.append(frequencyString);
+                    accuracyString.setSpan(new ForegroundColorSpan(RED), 0, frequencyString.length(), Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
+                    accuracyString.append(" / " + note.getFrequency());
                 }
             } else {
                 if (newNote.getActualFrequency() - tolerance <= newNote.getFrequency()) {
-                    sb.append(IN_TUNE);
-                    sb.setSpan(new ForegroundColorSpan(BLUE), 0, IN_TUNE.length(), Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
+                    accuracyString.append(tuneMessage);
+                    accuracyString.setSpan(new ForegroundColorSpan(BLUE), 0, tuneMessage.length(), Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
                 } else {
-                    sb.append(aFreq);
-                    sb.setSpan(new ForegroundColorSpan(BLUE), 0, aFreq.length(), Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
-                    sb.append(" / " + note.getFrequency());
+                    accuracyString.append(frequencyString);
+                    accuracyString.setSpan(new ForegroundColorSpan(BLUE), 0, frequencyString.length(), Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
+                    accuracyString.append(" / " + note.getFrequency());
                 }
             }
 
-            fTextView.setText(aFreq);
+            fTextView.setText(frequencyString);
             nTextView.setText(noteString);
-            probTextView.setText(sb);
+            probTextView.setText(accuracyString);
 
         }
     });
