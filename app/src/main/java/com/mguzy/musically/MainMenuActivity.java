@@ -19,5 +19,12 @@ public class MainMenuActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void openMetronome(View view)
+        {
+        Intent intent = new Intent(MainMenuActivity.this, MetronomeActivity.class);
+        startActivity(intent);
+    }
+
+
 
 }

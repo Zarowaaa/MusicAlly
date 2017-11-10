@@ -31,47 +31,33 @@
             android:textColor="@color/yellow"
             android:textSize="30sp" />
 
-        <TextView
-            android:id="@+id/currentBeat"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1.00"
-            android:gravity="center_vertical|center_horizontal"
-            android:text="@string/one"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@color/yellow"
-            android:textSize="30sp" />
-
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/bps"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:layout_height="wrap_content">
 
         <Button
             android:id="@+id/minus"
-            android:layout_width="0px"
+            android:layout_width="144dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="@android:color/holo_green_light"
             android:onClick="onMinusClick"
             android:text="@string/minus"
+            android:textColor="@color/very_dark_primary"
             android:textSize="30sp" />
 
         <Button
             android:id="@+id/plus"
-            android:layout_width="0px"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="@android:color/holo_green_light"
             android:onClick="onPlusClick"
             android:text="@string/plus"
+            android:textColor="@color/very_dark_primary"
             android:textSize="30sp" />
 
     </LinearLayout>
@@ -80,13 +66,6 @@
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/timesignature"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <Spinner
             android:id="@+id/beatspinner"
@@ -109,10 +88,31 @@
 
     </LinearLayout>
 
+    <Button
+        android:id="@+id/startstop"
+        android:layout_width="match_parent"
+        android:layout_height="219dp"
+        android:backgroundTint="@android:color/holo_green_light"
+        android:onClick="onStartStopClick"
+        android:text="@string/start"
+        android:textColor="@color/very_dark_primary"
+        android:textSize="36sp" />
+
+    <TextView
+        android:id="@+id/currentBeat"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1.00"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="@string/one"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/yellow"
+        android:textSize="30sp" />
+
     <LinearLayout
         android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/textView3"
@@ -129,13 +129,5 @@
             android:padding="10dp" />
 
     </LinearLayout>
-
-    <Button
-        android:id="@+id/startstop"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:onClick="onStartStopClick"
-        android:text="@string/start"
-        android:textSize="80dp" />
 
 </LinearLayout>

@@ -49,8 +49,7 @@ public class TuneActivity extends Activity {
                 } else if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_DENIED) {
                     Toast.makeText(TuneActivity.this, "GuitarTuner needs access to the microphone to function.", Toast.LENGTH_LONG).show();
                     TuneActivity.this.finish();
-                } else
-                    Toast.makeText(TuneActivity.this, "tumtfqawejfgaos", Toast.LENGTH_LONG).show();
+                }
                 break;
         }
     }
@@ -82,7 +81,6 @@ public class TuneActivity extends Activity {
             accuracyString.clearSpans();
             String frequencyString = "N/A";
             String noteString = "N/A";
-            String accuracy = "N/A";
 
             if (newNote.getFrequency() != Note.UNKNOWN_FREQUENCY) {
                 frequencyString = String.valueOf(new DecimalFormat("######.##").format(note.getActualFrequency())) + "hz";

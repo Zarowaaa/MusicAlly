@@ -29,6 +29,7 @@
         android:layout_margin="20dp"
         android:layout_weight="1"
         android:background="@android:color/holo_green_light"
+        android:onClick="openMetronome"
         android:text="Metronom"
         android:textColor="@color/very_dark_primary"
         android:textSize="18sp"
