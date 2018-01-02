@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:background="?attr/colorPrimaryDark"
-    tools:context="com.mguzy.musically.MainMenuActivity">
+    tools:context="com.mguzy.musically.HearingMenu">
 
     <Button
         android:id="@+id/button2"
@@ -16,8 +15,8 @@
         android:layout_margin="20dp"
         android:layout_weight="1"
         android:background="@android:color/holo_green_light"
-        android:onClick="openTuner"
-        android:text="Stroik"
+        android:onClick="openLevel1"
+        android:text="Poziom 1"
         android:textColor="@color/very_dark_primary"
         android:textSize="18sp"
         android:textStyle="bold" />
@@ -29,8 +28,8 @@
         android:layout_margin="20dp"
         android:layout_weight="1"
         android:background="@android:color/holo_green_light"
-        android:onClick="openMetronome"
-        android:text="Metronom"
+        android:onClick="openLevel2"
+        android:text="Poziom 2"
         android:textColor="@color/very_dark_primary"
         android:textSize="18sp"
         android:textStyle="bold" />
@@ -42,8 +41,8 @@
         android:layout_margin="20dp"
         android:layout_weight="1"
         android:background="@android:color/holo_green_light"
-        android:onClick="openHearing"
-        android:text="Szkolenie słuchu (todo)"
+        android:onClick="openLevel3"
+        android:text="Poziom 3"
         android:textColor="@color/very_dark_primary"
         android:textSize="18sp"
         android:textStyle="bold" />

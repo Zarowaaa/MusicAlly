@@ -12,5 +12,6 @@
     <string name="volume">volume</string>
     <color name="black">#000000</color>
     <string name="one">1</string>
+    <string name="title_activity_hearing__main_menu">Hearing_MainMenuActivity</string>
 
 </resources>

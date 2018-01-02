@@ -25,6 +25,10 @@ public class MainMenuActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
+    public void openHearing(View view)
+    {
+        Intent intent = new Intent(MainMenuActivity.this, HearingMenu.class);
+        startActivity(intent);
+    }
 
 }

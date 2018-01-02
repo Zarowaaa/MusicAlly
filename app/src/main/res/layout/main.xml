@@ -109,23 +109,32 @@
         android:textColor="@color/yellow"
         android:textSize="30sp" />
 
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:gravity="center_horizontal"
+        android:lineSpacingExtra="18sp"
+        android:text="@string/volume"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/primary"
+        android:textSize="12sp"
+        android:textStyle="italic" />
+
     <LinearLayout
         android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="@string/volume"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <SeekBar
             android:id="@+id/volumebar"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+
             android:padding="10dp" />
 
     </LinearLayout>
