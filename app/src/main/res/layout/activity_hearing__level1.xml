@@ -9,7 +9,17 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_green_dark"
+            android:onClick="playAllScales"
+            android:text="C4-C7" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -21,32 +31,50 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="a4-a5" />
+                android:background="@android:color/holo_green_light"
+                android:onClick="playFirstScale"
+                android:text="c4-c5" />
 
             <Button
                 android:id="@+id/secondScaleButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="a5-a6" />
+                android:background="@android:color/holo_green_light"
+                android:onClick="playSecondScale"
+                android:text="c5-c6" />
 
             <Button
                 android:id="@+id/allScalesButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="a4-a6" />
+                android:background="@android:color/holo_green_light"
+                android:onClick="playThirdScale"
+                android:text="c6-c7" />
 
         </LinearLayout>
 
         <TextView
             android:id="@+id/verdictTextView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="327dp"
+            android:gravity="center_vertical|center_horizontal"
             android:text="result"
             android:textAlignment="center"
+            android:textSize="40sp"
+            android:textStyle="bold"
             tools:layout_editor_absoluteX="3dp"
             tools:layout_editor_absoluteY="234dp" />
+
+        <TextView
+            android:id="@+id/performanceTextView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="Performance: 0/0 (0%)"
+            android:textSize="24sp"
+            android:textStyle="bold|italic" />
 
     </LinearLayout>
 
