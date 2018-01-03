@@ -43,7 +43,7 @@
         android:layout_weight="1"
         android:background="@android:color/holo_green_light"
         android:onClick="openHearing"
-        android:text="Szkolenie słuchu (todo)"
+        android:text="Szkolenie słuchu"
         android:textColor="@color/very_dark_primary"
         android:textSize="18sp"
         android:textStyle="bold" />

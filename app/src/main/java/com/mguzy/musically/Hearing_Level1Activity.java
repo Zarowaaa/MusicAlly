@@ -74,7 +74,8 @@ public class Hearing_Level1Activity extends AppCompatActivity {
     int exerciseCorrect = 0;
     int exerciseDone = 0;
     double percentCorrect = 0.0;
-
+    long start = 0;
+    long finish = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -156,11 +157,10 @@ public class Hearing_Level1Activity extends AppCompatActivity {
             };
             handler.postDelayed(r, 5000);
             //Toast.makeText(Hearing_Level1Activity.this, "IM OUT!", Toast.LENGTH_LONG).show();
-            long start = System.currentTimeMillis();
-            long finish = start + 5000;
-            System.out.println(start);
-            System.out.println(finish);
-            if (System.currentTimeMillis() < finish+200 && System.currentTimeMillis() > finish-200  )
+
+            System.out.println(System.currentTimeMillis());
+            System.out.println("finish" + finish);
+            while (System.currentTimeMillis() == finish)
             {
                 //Toast.makeText(Hearing_Level1Activity.this, "IM IN!", Toast.LENGTH_LONG).show();
                 if(toneRightFlag == 1){
@@ -240,8 +240,10 @@ public class Hearing_Level1Activity extends AppCompatActivity {
                 frequency = 523;
                 break;
         }
-
+        start = System.currentTimeMillis();
+        finish = start + 5000;
         tuner.start();
+
     }
 
     public void playSecondScale(View view){
@@ -301,6 +303,8 @@ public class Hearing_Level1Activity extends AppCompatActivity {
                 frequency = 1046;
                 break;
         }
+        start = System.currentTimeMillis();
+        finish = start + 5000;
         tuner.start();
     }
 
@@ -361,6 +365,8 @@ public class Hearing_Level1Activity extends AppCompatActivity {
                 frequency = 2093;
                 break;
         }
+        start = System.currentTimeMillis();
+        finish = start + 5000;
         tuner.start();
     }
 
@@ -521,6 +527,8 @@ public class Hearing_Level1Activity extends AppCompatActivity {
                 frequency = 2093;
                 break;
         }
+        start = System.currentTimeMillis();
+        finish = start + 5000;
         tuner.start();
     }
 

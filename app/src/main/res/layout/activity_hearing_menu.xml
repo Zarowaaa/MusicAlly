@@ -29,7 +29,7 @@
         android:layout_weight="1"
         android:background="@android:color/holo_green_light"
         android:onClick="openLevel2"
-        android:text="Poziom 2"
+        android:text="Poziom 2 (ToDo)"
         android:textColor="@color/very_dark_primary"
         android:textSize="18sp"
         android:textStyle="bold" />
@@ -42,7 +42,7 @@
         android:layout_weight="1"
         android:background="@android:color/holo_green_light"
         android:onClick="openLevel3"
-        android:text="Poziom 3"
+        android:text="Poziom 3 (todo)"
         android:textColor="@color/very_dark_primary"
         android:textSize="18sp"
         android:textStyle="bold" />
