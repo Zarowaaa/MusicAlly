@@ -11,21 +11,43 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/firstScaleButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="a4-a5" />
+
+            <Button
+                android:id="@+id/secondScaleButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="a5-a6" />
+
+            <Button
+                android:id="@+id/allScalesButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="a4-a6" />
+
+        </LinearLayout>
+
         <TextView
             android:id="@+id/verdictTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="result"
+            android:textAlignment="center"
             tools:layout_editor_absoluteX="3dp"
             tools:layout_editor_absoluteY="234dp" />
 
-        <TextView
-            android:id="@+id/resultTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="dong"
-            tools:layout_editor_absoluteX="219dp"
-            tools:layout_editor_absoluteY="159dp" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
