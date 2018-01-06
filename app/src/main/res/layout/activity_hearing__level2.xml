@@ -34,6 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="@android:color/holo_green_light"
+                android:onClick="playc4"
                 android:text="C4" />
 
             <Button
@@ -42,6 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="@android:color/holo_green_light"
+                android:onClick="playdb4"
                 android:text="Db4"
                 android:textAllCaps="false" />
 
@@ -51,6 +53,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="@android:color/holo_green_light"
+                android:onClick="playd4"
                 android:text="D4" />
         </LinearLayout>
 
@@ -66,6 +69,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="@android:color/holo_green_light"
+                android:onClick="playeb4"
                 android:text="Eb4"
                 android:textAllCaps="false" />
 
@@ -75,6 +79,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="@android:color/holo_green_light"
+                android:onClick="playe4"
                 android:text="E4" />
 
             <Button
@@ -83,6 +88,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="@android:color/holo_green_light"
+                android:onClick="playf4"
                 android:text="F4" />
         </LinearLayout>
 
@@ -98,6 +104,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="@android:color/holo_green_light"
+                android:onClick="playgb4"
                 android:text="Gb4"
                 android:textAllCaps="false" />
 
@@ -107,6 +114,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="@android:color/holo_green_light"
+                android:onClick="playg4"
                 android:text="G4" />
 
             <Button
@@ -115,6 +123,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="@android:color/holo_green_light"
+                android:onClick="playab4"
                 android:text="Ab4"
                 android:textAllCaps="false" />
         </LinearLayout>
@@ -131,6 +140,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="@android:color/holo_green_light"
+                android:onClick="playa4"
                 android:text="A4" />
 
             <Button
@@ -139,6 +149,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="@android:color/holo_green_light"
+                android:onClick="playbb4"
                 android:text="Bb4"
                 android:textAllCaps="false" />
 
@@ -148,6 +159,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="@android:color/holo_green_light"
+                android:onClick="playb4"
                 android:text="B4" />
         </LinearLayout>
 
@@ -173,6 +185,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="@android:color/holo_green_light"
+                android:onClick="playc5"
                 android:text="C5" />
 
             <Button
@@ -181,6 +194,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="@android:color/holo_green_light"
+                android:onClick="playdb5"
                 android:text="Db5"
                 android:textAllCaps="false" />
 
@@ -190,6 +204,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="@android:color/holo_green_light"
+                android:onClick="playd5"
                 android:text="D5" />
         </LinearLayout>
 
@@ -205,6 +220,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="@android:color/holo_green_light"
+                android:onClick="playeb5"
                 android:text="Eb5"
                 android:textAllCaps="false" />
 
@@ -214,6 +230,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="@android:color/holo_green_light"
+                android:onClick="playe5"
                 android:text="E5" />
 
             <Button
@@ -222,6 +239,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="@android:color/holo_green_light"
+                android:onClick="playf5"
                 android:text="F5" />
         </LinearLayout>
 
@@ -237,6 +255,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="@android:color/holo_green_light"
+                android:onClick="playgb5"
                 android:text="Gb5"
                 android:textAllCaps="false" />
 
@@ -246,6 +265,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="@android:color/holo_green_light"
+                android:onClick="playg5"
                 android:text="G5" />
 
             <Button
@@ -254,6 +274,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="@android:color/holo_green_light"
+                android:onClick="playab5"
                 android:text="Ab5"
                 android:textAllCaps="false" />
         </LinearLayout>
@@ -270,6 +291,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="@android:color/holo_green_light"
+                android:onClick="playa5"
                 android:text="A5" />
 
             <Button
@@ -278,6 +300,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="@android:color/holo_green_light"
+                android:onClick="playbb5"
                 android:text="Bb5"
                 android:textAllCaps="false" />
 
@@ -287,6 +310,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="@android:color/holo_green_light"
+                android:onClick="playb5"
                 android:text="B5" />
         </LinearLayout>
 
@@ -312,6 +336,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="@android:color/holo_green_light"
+                android:onClick="playc6"
                 android:text="C6" />
 
             <Button
@@ -320,6 +345,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="@android:color/holo_green_light"
+                android:onClick="playdb6"
                 android:text="Db6" />
 
             <Button
@@ -328,6 +354,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="@android:color/holo_green_light"
+                android:onClick="playd6"
                 android:text="D6" />
         </LinearLayout>
 
@@ -343,6 +370,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="@android:color/holo_green_light"
+                android:onClick="playeb6"
                 android:text="Eb6" />
 
             <Button
@@ -351,6 +379,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="@android:color/holo_green_light"
+                android:onClick="playe6"
                 android:text="E6" />
 
             <Button
@@ -374,6 +403,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="@android:color/holo_green_light"
+                android:onClick="playgb6"
                 android:text="Gb6" />
 
             <Button
@@ -382,6 +412,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="@android:color/holo_green_light"
+                android:onClick="playg6"
                 android:text="G6" />
 
             <Button
@@ -390,6 +421,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="@android:color/holo_green_light"
+                android:onClick="playab6"
                 android:text="Ab6" />
         </LinearLayout>
 
@@ -405,6 +437,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="@android:color/holo_green_light"
+                android:onClick="playa6"
                 android:text="A6" />
 
             <Button
@@ -413,6 +446,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="@android:color/holo_green_light"
+                android:onClick="playbb6"
                 android:text="Bb6" />
 
             <Button
@@ -421,6 +455,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="@android:color/holo_green_light"
+                android:onClick="playb6"
                 android:text="B6" />
         </LinearLayout>
 

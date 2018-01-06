@@ -3,49 +3,69 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:background="?attr/colorPrimaryDark"
     tools:context="com.mguzy.musically.MainMenuActivity">
 
-    <Button
-        android:id="@+id/button2"
-        style="@style/Widget.AppCompat.Button"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_height="296dp"
         android:layout_weight="1"
-        android:background="@android:color/holo_green_light"
-        android:onClick="openTuner"
-        android:text="Stroik"
-        android:textColor="@color/very_dark_primary"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:layout_weight="1"
-        android:background="@android:color/holo_green_light"
-        android:onClick="openMetronome"
-        android:text="Metronom"
-        android:textColor="@color/very_dark_primary"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="298dp"
+            app:srcCompat="@drawable/logotally" />
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/button"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_height="286dp"
         android:layout_weight="1"
-        android:background="@android:color/holo_green_light"
-        android:onClick="openHearing"
-        android:text="Szkolenie słuchu"
-        android:textColor="@color/very_dark_primary"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/button2"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:background="@android:color/holo_blue_light"
+            android:onClick="openTuner"
+            android:text="Stroik"
+            android:textColor="@color/very_dark_primary"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:background="@android:color/holo_orange_dark"
+            android:onClick="openMetronome"
+            android:text="Metronom"
+            android:textColor="@color/very_dark_primary"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:background="@android:color/holo_green_light"
+            android:onClick="openHearing"
+            android:text="Szkolenie słuchu"
+            android:textColor="@color/very_dark_primary"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
 </LinearLayout>

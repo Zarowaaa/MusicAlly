@@ -76,6 +76,7 @@ public class Hearing_Level1Activity extends AppCompatActivity {
     double percentCorrect = 0.0;
     long start = 0;
     long finish = 0;
+    int numberAddedFlag = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -145,21 +146,21 @@ public class Hearing_Level1Activity extends AppCompatActivity {
 
             note = newNote;
             result = newResult;
-
+            Toast.makeText(Hearing_Level1Activity.this, "IM tuner!", Toast.LENGTH_LONG).show();
             Handler handler = new Handler();
             final Runnable r = new Runnable(){
                 public void run() {
                     //if(note.getActualFrequency() > 1046-tolerance && note.getActualFrequency() < 1046+tolerance ){
                     if(note.getActualFrequency() > frequency-tolerance && note.getActualFrequency() < frequency+tolerance ){
                         toneRightFlag = 1;
+                        Toast.makeText(Hearing_Level1Activity.this, "IM dong!", Toast.LENGTH_LONG).show();
+
                     }
                 }
             };
             handler.postDelayed(r, 5000);
             //Toast.makeText(Hearing_Level1Activity.this, "IM OUT!", Toast.LENGTH_LONG).show();
 
-            System.out.println(System.currentTimeMillis());
-            System.out.println("finish" + finish);
             while (System.currentTimeMillis() == finish)
             {
                 //Toast.makeText(Hearing_Level1Activity.this, "IM IN!", Toast.LENGTH_LONG).show();
@@ -172,10 +173,15 @@ public class Hearing_Level1Activity extends AppCompatActivity {
                     verdictTextView.setTextColor(Color.RED);
                 }
                 toneRightFlag = 0;
-                exerciseDone++;
-                percentCorrect = (exerciseCorrect/exerciseDone)*100;
-                String performance = "Performance: " + exerciseCorrect+ "/" + exerciseDone + " (" +percentCorrect+"%)" ;
-                performanceTextView.setText(performance);
+                if(numberAddedFlag == 0){
+                    exerciseDone++;
+                    percentCorrect = (exerciseCorrect/exerciseDone)*100;
+                    String performance = "Performance: " + exerciseCorrect+ "/" + exerciseDone + " (" +percentCorrect+"%)" ;
+                    performanceTextView.setText(performance);
+                    numberAddedFlag = 1;
+                }
+
+
                 tuner.stop();
             }
             //System.out.println(System.currentTimeMillis());
@@ -242,6 +248,7 @@ public class Hearing_Level1Activity extends AppCompatActivity {
         }
         start = System.currentTimeMillis();
         finish = start + 5000;
+        numberAddedFlag = 0;
         tuner.start();
 
     }
@@ -305,6 +312,7 @@ public class Hearing_Level1Activity extends AppCompatActivity {
         }
         start = System.currentTimeMillis();
         finish = start + 5000;
+        numberAddedFlag = 0;
         tuner.start();
     }
 
@@ -367,6 +375,7 @@ public class Hearing_Level1Activity extends AppCompatActivity {
         }
         start = System.currentTimeMillis();
         finish = start + 5000;
+        numberAddedFlag = 0;
         tuner.start();
     }
 
@@ -529,6 +538,7 @@ public class Hearing_Level1Activity extends AppCompatActivity {
         }
         start = System.currentTimeMillis();
         finish = start + 5000;
+        numberAddedFlag = 0;
         tuner.start();
     }
 

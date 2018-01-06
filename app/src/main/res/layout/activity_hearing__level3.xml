@@ -6,4 +6,111 @@
     android:layout_height="match_parent"
     tools:context="com.mguzy.musically.Hearing_Level3Activity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_green_dark"
+
+            android:text="C4-C7" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/firstScaleButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/holo_green_light"
+                android:onClick="playFirstScale"
+                android:text="c4-c5" />
+
+            <Button
+                android:id="@+id/secondScaleButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/holo_green_light"
+                android:onClick="playSecondScale"
+                android:text="c5-c6" />
+
+            <Button
+                android:id="@+id/allScalesButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/holo_green_light"
+                android:onClick="playThirdScale"
+                android:text="c6-c7" />
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/firstNoteEditText"
+                style="@style/Widget.AppCompat.EditText"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:gravity="center_vertical|center_horizontal"
+                android:inputType="textPersonName"
+                android:textAlignment="viewStart" />
+
+            <Space
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <EditText
+                android:id="@+id/secondNoteEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:gravity="center_vertical|center_horizontal"
+                android:inputType="textPersonName"
+                android:selectAllOnFocus="false"
+                android:singleLine="false" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_green_dark"
+            android:onClick="compareResults"
+            android:text="Check" />
+
+        <TextView
+            android:id="@+id/performanceTextView"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="Performance: 0/0 (0%)"
+            android:textSize="24sp"
+            android:textStyle="bold|italic" />
+
+    </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>
