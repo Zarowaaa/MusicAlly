@@ -26,7 +26,8 @@
         <activity android:name=".Hearing_Level1Activity" />
         <activity android:name=".Hearing_Level2Activity" />
         <activity android:name=".Hearing_Level3Activity" />
-        <activity android:name=".HearingMenu"></activity>
+        <activity android:name=".HearingMenu" />
+        <activity android:name=".HowTo" />
     </application>
 
 </manifest>

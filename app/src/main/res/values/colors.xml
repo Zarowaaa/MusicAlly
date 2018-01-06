@@ -8,7 +8,7 @@
     <item name="dial" type="color">#FF9800</item>
     <item name="green" type="color">#85D52C</item>
     <item name="accent_two" type="color">#85D52C</item>
-    <item name="white" type="color">#FFFFFF</item>
+    <item name="white" type="color">#ffffff</item>
     <item name="text" type="color">#FFFFFF</item>
     <item name="primary" type="color">#b0bec5</item>
     <item name="circle" type="color">#B0BEC5</item>

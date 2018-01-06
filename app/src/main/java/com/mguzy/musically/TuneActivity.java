@@ -80,7 +80,7 @@ public class TuneActivity extends Activity {
             accuracyString.clear();
             accuracyString.clearSpans();
             String frequencyString = "N/A";
-            String noteString = "N/A";
+            String noteString = "Too quiet";
 
             if (newNote.getFrequency() != Note.UNKNOWN_FREQUENCY) {
                 frequencyString = String.valueOf(new DecimalFormat("######.##").format(note.getActualFrequency())) + "hz";

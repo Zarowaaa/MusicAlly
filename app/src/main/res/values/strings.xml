@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MusicAlly</string>
+    <string name="app_name">TuneAlly</string>
     <string name="main_bottom_banner_id">ca-app-pub-1824499265963306/1019546872</string>
     <string name="start">Start</string>
     <string name="stop">Stop</string>
@@ -13,5 +13,13 @@
     <color name="black">#000000</color>
     <string name="one">1</string>
     <string name="title_activity_hearing__main_menu">Hearing_MainMenuActivity</string>
+    <string name="howToString">
+        \n
+        1 - Sing to tone:\n
+            Choose the scale and try to sing at exact the same tone as randomly picked note. After 5 seconds your performance will be shown.\n
+        2 - Tones:\n
+            In this module you can freely practice singing and recognizing tones without being judged. Simply touch the desired tone and sing.\n
+        3 - Guessing:\n
+            Choose two scales and try to guess which random tones were played.\n</string>
 
 </resources>

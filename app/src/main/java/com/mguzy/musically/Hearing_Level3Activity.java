@@ -1,6 +1,7 @@
 package com.mguzy.musically;
 
 import android.Manifest;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Handler;
@@ -73,12 +74,22 @@ public class Hearing_Level3Activity extends AppCompatActivity {
     public static int frequency = 400;
     String tone1 = "";
     String tone2 = "";
+    String performance = "";
+    SharedPreferences sharedPreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hearing__level3);
         performanceTextView = (TextView) findViewById(R.id.performanceTextView);
-        performanceTextView.setText("Performance: 0/0 (0%)");
+
+        sharedPreferences = getApplicationContext().getSharedPreferences("score2", MODE_PRIVATE);
+        if(sharedPreferences != null) {
+            exerciseCorrect = Integer.parseInt(sharedPreferences.getString("correct", "0"));
+            exerciseDone = Integer.parseInt(sharedPreferences.getString("done","0"));
+            percentCorrect = Double.parseDouble(sharedPreferences.getString("percent","0.0"));
+        }
+        performance = "Performance: " + exerciseCorrect + "/" + exerciseDone + " (" + percentCorrect + "%)";
         firstNoteET = (EditText) findViewById(R.id.firstNoteEditText);
         secondNoteET = (EditText) findViewById(R.id.secondNoteEditText);
         requestPermissions(new String[]{Manifest.permission.RECORD_AUDIO},
@@ -120,11 +131,11 @@ public class Hearing_Level3Activity extends AppCompatActivity {
         gb4 = MediaPlayer.create(this, R.raw.gb4);
         gb5 = MediaPlayer.create(this, R.raw.gb5);
         gb6 = MediaPlayer.create(this, R.raw.gb6);
+        performanceTextView.setText(performance);
     }
 
 
     public void playFirstScale(View view){
-
         randomInt = randomGenerator.nextInt(13) + 1;
         switch (randomInt) {
             case 1:
@@ -864,8 +875,13 @@ public class Hearing_Level3Activity extends AppCompatActivity {
         }else Toast.makeText(Hearing_Level3Activity.this, "Wrong guess! Memory cleared.", Toast.LENGTH_SHORT).show();
         exerciseDone++;
         percentCorrect = (exerciseCorrect/exerciseDone)*100;
-        String performance = "Performance: " + exerciseCorrect+ "/" + exerciseDone + " (" +percentCorrect+"%)" ;
+        performance = "Performance: " + exerciseCorrect+ "/" + exerciseDone + " (" +percentCorrect+"%)" ;
         performanceTextView.setText(performance);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("correct", Integer.toString(exerciseCorrect));
+        editor.putString("done", Integer.toString(exerciseDone));
+        editor.putString("percent", Double.toString(percentCorrect));
+        editor.commit();
         tone1 = "";
         tone2 = "";
     }

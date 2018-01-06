@@ -1,6 +1,7 @@
 package com.mguzy.musically;
 
 import android.Manifest;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.media.MediaPlayer;
@@ -77,14 +78,25 @@ public class Hearing_Level1Activity extends AppCompatActivity {
     long start = 0;
     long finish = 0;
     int numberAddedFlag = 0;
+    SharedPreferences sharedPreferences;
+    String performance = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hearing__level1);
         verdictTextView = (TextView) findViewById(R.id.verdictTextView);
-        verdictTextView.setText("NULL");
+        verdictTextView.setText("Choose the scale");
         performanceTextView = (TextView) findViewById(R.id.performanceTextView);
-        performanceTextView.setText("Performance: 0/0 (0%)");
+        sharedPreferences = getApplicationContext().getSharedPreferences("score1", MODE_PRIVATE);
+        if(sharedPreferences != null) {
+            exerciseCorrect = Integer.parseInt(sharedPreferences.getString("correct", "0"));
+            exerciseDone = Integer.parseInt(sharedPreferences.getString("done","0"));
+            percentCorrect = Double.parseDouble(sharedPreferences.getString("percent","0.0"));
+        }
+        performance = "Performance: " + exerciseCorrect + "/" + exerciseDone + " (" + percentCorrect + "%)";
+
+        performanceTextView.setText(performance);
         requestPermissions(new String[]{Manifest.permission.RECORD_AUDIO},
                 AUDIO_PERMISSION_REQUEST_CODE);
         a4 = MediaPlayer.create(getApplicationContext(), R.raw.a4);
@@ -176,9 +188,14 @@ public class Hearing_Level1Activity extends AppCompatActivity {
                 if(numberAddedFlag == 0){
                     exerciseDone++;
                     percentCorrect = (exerciseCorrect/exerciseDone)*100;
-                    String performance = "Performance: " + exerciseCorrect+ "/" + exerciseDone + " (" +percentCorrect+"%)" ;
+                    performance = "Performance: " + exerciseCorrect+ "/" + exerciseDone + " (" +percentCorrect+"%)" ;
                     performanceTextView.setText(performance);
                     numberAddedFlag = 1;
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString("correct", Integer.toString(exerciseCorrect));
+                    editor.putString("done", Integer.toString(exerciseDone));
+                    editor.putString("percent", Double.toString(percentCorrect));
+                    editor.commit();
                 }
 
 
