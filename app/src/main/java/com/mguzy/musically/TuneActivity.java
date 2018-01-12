@@ -38,6 +38,8 @@ public class TuneActivity extends Activity {
     public static final String tuneMessage = "in tune";
     private PitchDetectionResult result;
     private SpannableStringBuilder accuracyString;
+    String frequencyString = "N/A";
+    String noteString = "Too quiet";
 
     //note = new Note(Note.DEFAULT_FREQUENCY);
     @Override
@@ -47,7 +49,7 @@ public class TuneActivity extends Activity {
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     tuner.start();
                 } else if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_DENIED) {
-                    Toast.makeText(TuneActivity.this, "GuitarTuner needs access to the microphone to function.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(TuneActivity.this, "Tuner needs access to the microphone to function.", Toast.LENGTH_LONG).show();
                     TuneActivity.this.finish();
                 }
                 break;
@@ -74,13 +76,10 @@ public class TuneActivity extends Activity {
     Tuner tuner = new Tuner(new TunerUpdate() {
         @Override
         public void updateNote(Note newNote, PitchDetectionResult newResult) {
-
             note = newNote;
             result = newResult;
             accuracyString.clear();
             accuracyString.clearSpans();
-            String frequencyString = "N/A";
-            String noteString = "Too quiet";
 
             if (newNote.getFrequency() != Note.UNKNOWN_FREQUENCY) {
                 frequencyString = String.valueOf(new DecimalFormat("######.##").format(note.getActualFrequency())) + "hz";
@@ -105,11 +104,9 @@ public class TuneActivity extends Activity {
                     accuracyString.append(" / " + note.getFrequency());
                 }
             }
-
             fTextView.setText(frequencyString);
             nTextView.setText(noteString);
             probTextView.setText(accuracyString);
-
         }
     });
 }
