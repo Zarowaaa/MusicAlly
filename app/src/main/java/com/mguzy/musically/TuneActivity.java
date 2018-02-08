@@ -80,13 +80,27 @@ public class TuneActivity extends Activity {
             result = newResult;
             accuracyString.clear();
             accuracyString.clearSpans();
+            //System.out.println("NoteAbove" + note.getNoteAboveFrequency());
+            //System.out.println("Difference" + note.getDifference());
+
+            System.out.println("Actual: " + note.getActualFrequency());
+            System.out.println(note.getFrequency());
+
+            double toneBetween = note.getNoteAboveFrequency() - note.getNoteBelowFrequency();
+
+            toneBetween = (toneBetween/50);
+
+            if(Math.abs(note.getDifference()) < toneBetween){
+                //System.out.println("ok");
+            }
 
             if (newNote.getFrequency() != Note.UNKNOWN_FREQUENCY) {
                 frequencyString = String.valueOf(new DecimalFormat("######.##").format(note.getActualFrequency())) + "hz";
                 noteString = note.getNote();
             }
-            if (newNote.getActualFrequency() < newNote.getFrequency()) {
-                if (newNote.getActualFrequency() + tolerance >= newNote.getFrequency()) {
+            if (newNote.getActualFrequency() < newNote.getFrequency() ) {
+                //if (newNote.getActualFrequency() + tolerance >= newNote.getFrequency()) {
+                if(Math.abs(note.getDifference()) < toneBetween && newNote.getFrequency() >= newNote.getActualFrequency()){
                     accuracyString.append(tuneMessage);
                     accuracyString.setSpan(new ForegroundColorSpan(RED), 0, tuneMessage.length(), Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
                 } else {
@@ -95,7 +109,8 @@ public class TuneActivity extends Activity {
                     accuracyString.append(" / " + note.getFrequency());
                 }
             } else {
-                if (newNote.getActualFrequency() - tolerance <= newNote.getFrequency()) {
+                //if (newNote.getActualFrequency() - tolerance <= newNote.getFrequency()) {
+                if(Math.abs(note.getDifference()) > toneBetween && newNote.getFrequency() < newNote.getActualFrequency()){
                     accuracyString.append(tuneMessage);
                     accuracyString.setSpan(new ForegroundColorSpan(BLUE), 0, tuneMessage.length(), Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
                 } else {

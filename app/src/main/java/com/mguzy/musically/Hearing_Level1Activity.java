@@ -33,42 +33,42 @@ public class Hearing_Level1Activity extends AppCompatActivity {
     public static final int tolerance = 5;
     private PitchDetectionResult result;
     public static int frequency = 400;
-     MediaPlayer a4 = null;
-     MediaPlayer a5= null;
-    MediaPlayer a6= null;
-     MediaPlayer ab4= null;
-     MediaPlayer ab5= null;
-    MediaPlayer ab6= null;
-    MediaPlayer b4= null;
-    MediaPlayer b5= null;
-    MediaPlayer b6= null;
-    MediaPlayer bb4= null;
-    MediaPlayer bb5= null;
-    MediaPlayer bb6= null;
-    MediaPlayer c4= null;
-    MediaPlayer c5= null;
+    MediaPlayer a4 = null;
+    MediaPlayer a5 = null;
+    MediaPlayer a6 = null;
+    MediaPlayer ab4 = null;
+    MediaPlayer ab5 = null;
+    MediaPlayer ab6 = null;
+    MediaPlayer b4 = null;
+    MediaPlayer b5 = null;
+    MediaPlayer b6 = null;
+    MediaPlayer bb4 = null;
+    MediaPlayer bb5 = null;
+    MediaPlayer bb6 = null;
+    MediaPlayer c4 = null;
+    MediaPlayer c5 = null;
     MediaPlayer c6 = null;
     MediaPlayer c7 = null;
-    MediaPlayer d4= null;
+    MediaPlayer d4 = null;
     MediaPlayer d5 = null;
-    MediaPlayer d6= null;
+    MediaPlayer d6 = null;
     MediaPlayer db4 = null;
     MediaPlayer db5 = null;
     MediaPlayer db6 = null;
     MediaPlayer e4 = null;
-    MediaPlayer e5= null;
-    MediaPlayer e6= null;
-    MediaPlayer eb4= null;
-    MediaPlayer eb5= null;
+    MediaPlayer e5 = null;
+    MediaPlayer e6 = null;
+    MediaPlayer eb4 = null;
+    MediaPlayer eb5 = null;
     MediaPlayer eb6 = null;
     MediaPlayer f4 = null;
-    MediaPlayer f5= null;
-    MediaPlayer f6= null;
+    MediaPlayer f5 = null;
+    MediaPlayer f6 = null;
     MediaPlayer g4 = null;
     MediaPlayer g5 = null;
     MediaPlayer g6 = null;
-    MediaPlayer gb4= null;
-    MediaPlayer gb5= null;
+    MediaPlayer gb4 = null;
+    MediaPlayer gb5 = null;
     MediaPlayer gb6 = null;
     Random randomGenerator = new Random();
     int randomInt = 1;
@@ -89,10 +89,10 @@ public class Hearing_Level1Activity extends AppCompatActivity {
         verdictTextView.setText("Choose the scale");
         performanceTextView = (TextView) findViewById(R.id.performanceTextView);
         sharedPreferences = getApplicationContext().getSharedPreferences("score1", MODE_PRIVATE);
-        if(sharedPreferences != null) {
+        if (sharedPreferences != null) {
             exerciseCorrect = Integer.parseInt(sharedPreferences.getString("correct", "0"));
-            exerciseDone = Integer.parseInt(sharedPreferences.getString("done","0"));
-            percentCorrect = Double.parseDouble(sharedPreferences.getString("percent","0.0"));
+            exerciseDone = Integer.parseInt(sharedPreferences.getString("done", "0"));
+            percentCorrect = Double.parseDouble(sharedPreferences.getString("percent", "0.0"));
         }
         performance = "Performance: " + exerciseCorrect + "/" + exerciseDone + " (" + percentCorrect + "%)";
 
@@ -130,9 +130,9 @@ public class Hearing_Level1Activity extends AppCompatActivity {
         f4 = MediaPlayer.create(this, R.raw.f4);
         f5 = MediaPlayer.create(this, R.raw.f5);
         f6 = MediaPlayer.create(this, R.raw.f6);
-        g4 = MediaPlayer.create(this, R.raw.g4 );
-        g5 = MediaPlayer.create(this, R.raw.g5 );
-        g6 = MediaPlayer.create(this, R.raw.g6 );
+        g4 = MediaPlayer.create(this, R.raw.g4);
+        g5 = MediaPlayer.create(this, R.raw.g5);
+        g6 = MediaPlayer.create(this, R.raw.g6);
         gb4 = MediaPlayer.create(this, R.raw.gb4);
         gb5 = MediaPlayer.create(this, R.raw.gb5);
         gb6 = MediaPlayer.create(this, R.raw.gb6);
@@ -160,10 +160,10 @@ public class Hearing_Level1Activity extends AppCompatActivity {
             result = newResult;
             Toast.makeText(Hearing_Level1Activity.this, "IM tuner!", Toast.LENGTH_LONG).show();
             Handler handler = new Handler();
-            final Runnable r = new Runnable(){
+            final Runnable r = new Runnable() {
                 public void run() {
                     //if(note.getActualFrequency() > 1046-tolerance && note.getActualFrequency() < 1046+tolerance ){
-                    if(note.getActualFrequency() > frequency-tolerance && note.getActualFrequency() < frequency+tolerance ){
+                    if (note.getActualFrequency() > frequency - tolerance && note.getActualFrequency() < frequency + tolerance) {
                         toneRightFlag = 1;
                         Toast.makeText(Hearing_Level1Activity.this, "IM dong!", Toast.LENGTH_LONG).show();
 
@@ -173,22 +173,20 @@ public class Hearing_Level1Activity extends AppCompatActivity {
             handler.postDelayed(r, 5000);
             //Toast.makeText(Hearing_Level1Activity.this, "IM OUT!", Toast.LENGTH_LONG).show();
 
-            while (System.currentTimeMillis() == finish)
-            {
-                //Toast.makeText(Hearing_Level1Activity.this, "IM IN!", Toast.LENGTH_LONG).show();
-                if(toneRightFlag == 1){
+            while (System.currentTimeMillis() == finish) {
+                if (toneRightFlag == 1) {
                     verdictTextView.setText("Correct!");
                     verdictTextView.setTextColor(Color.GREEN);
                     exerciseCorrect++;
-                }else if (toneRightFlag == 0){
+                } else if (toneRightFlag == 0) {
                     verdictTextView.setText("Wrong");
                     verdictTextView.setTextColor(Color.RED);
                 }
                 toneRightFlag = 0;
-                if(numberAddedFlag == 0){
+                if (numberAddedFlag == 0) {
                     exerciseDone++;
-                    percentCorrect = (exerciseCorrect/exerciseDone)*100;
-                    performance = "Performance: " + exerciseCorrect+ "/" + exerciseDone + " (" +percentCorrect+"%)" ;
+                    percentCorrect = (exerciseCorrect / exerciseDone) * 100;
+                    performance = "Performance: " + exerciseCorrect + "/" + exerciseDone + " (" + percentCorrect + "%)";
                     performanceTextView.setText(performance);
                     numberAddedFlag = 1;
                     SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -197,8 +195,6 @@ public class Hearing_Level1Activity extends AppCompatActivity {
                     editor.putString("percent", Double.toString(percentCorrect));
                     editor.commit();
                 }
-
-
                 tuner.stop();
             }
             //System.out.println(System.currentTimeMillis());
@@ -206,7 +202,7 @@ public class Hearing_Level1Activity extends AppCompatActivity {
     });
 
 
-    public void playFirstScale(View view){
+    public void playFirstScale(View view) {
 
         randomInt = randomGenerator.nextInt(13) + 1;
         switch (randomInt) {
@@ -270,7 +266,7 @@ public class Hearing_Level1Activity extends AppCompatActivity {
 
     }
 
-    public void playSecondScale(View view){
+    public void playSecondScale(View view) {
         Random randomGenerator = new Random();
         int randomInt = randomGenerator.nextInt(13) + 1;
         switch (randomInt) {
@@ -333,7 +329,7 @@ public class Hearing_Level1Activity extends AppCompatActivity {
         tuner.start();
     }
 
-    public void playThirdScale(View view){
+    public void playThirdScale(View view) {
         Random randomGenerator = new Random();
         int randomInt = randomGenerator.nextInt(13) + 1;
         switch (randomInt) {
@@ -396,7 +392,7 @@ public class Hearing_Level1Activity extends AppCompatActivity {
         tuner.start();
     }
 
-    public void playAllScales(View view){
+    public void playAllScales(View view) {
         Random randomGenerator = new Random();
         int randomInt = randomGenerator.nextInt(26) + 1;
         switch (randomInt) {

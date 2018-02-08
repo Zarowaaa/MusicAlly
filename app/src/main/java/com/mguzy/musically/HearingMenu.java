@@ -39,7 +39,6 @@ public class HearingMenu extends AppCompatActivity {
         }
         performance1 = "Module 1: " + exerciseCorrect1 + "/" + exerciseDone1 + " (" + percentCorrect1 + "%)";
 
-
         sharedPreferences = getApplicationContext().getSharedPreferences("score2", MODE_PRIVATE);
         if(sharedPreferences != null) {
             exerciseCorrect2 = Integer.parseInt(sharedPreferences.getString("correct", "0"));

@@ -869,7 +869,7 @@ public class Hearing_Level3Activity extends AppCompatActivity {
     }
 
     public void compareResults(View view){
-        if (firstNoteET.getText().toString() == tone1 && secondNoteET.getText().toString() == tone2 ){
+        if (firstNoteET.getText().toString().toLowerCase() == tone1 && secondNoteET.getText().toString().toLowerCase() == tone2 ){
             exerciseCorrect++;
             Toast.makeText(Hearing_Level3Activity.this, "Correct! Memory cleared.", Toast.LENGTH_SHORT).show();
         }else Toast.makeText(Hearing_Level3Activity.this, "Wrong guess! Memory cleared.", Toast.LENGTH_SHORT).show();
